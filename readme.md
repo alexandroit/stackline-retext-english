@@ -1,4 +1,20 @@
-# [![retext][logo]][unified]
+# @stackline/retext-english
+
+Independent maintenance fork of `retext-english@4.1.0`, preserving its API and published type declarations.
+
+```sh
+npm install @stackline/retext-english
+# Keep existing imports:
+npm install retext-english@npm:@stackline/retext-english@1.0.0
+```
+
+[Stackline](https://alexandro.net/) · [Issues](https://github.com/alexandroit/stackline-retext-english/issues) · [Community](https://www.reddit.com/r/Stackline/)
+
+See [UPSTREAM.md](UPSTREAM.md) for source identity and issue review, and [CHANGELOG.md](CHANGELOG.md) for maintenance changes. Functional tests also run against the final npm tarball; releases are published from GitHub Actions with provenance.
+
+## Upstream documentation
+
+# retext-english
 
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
@@ -8,29 +24,9 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**retext** is a natural language processor powered by [plugins][] part of the
-[unified][] [collective][].
-
-## Intro
-
-**retext** is an ecosystem of [plugins][] for processing natural language to do
-all kinds of things: [check spelling][spell], [fix typography][smartypants], or
-[make sure text is readable][readability].
-
-*   Visit [`unifiedjs.com`][website] and peruse its [Learn][] section for an
-    overview
-*   Read [unified][]’s readme for a technical intro
-*   Browse [awesome retext][awesome] to find out more about the ecosystem
-*   Follow us on [Twitter][] to see what we’re up to
-*   Check out [Contribute][] below to find out how to help out
-
-This repository contains the following projects:
-
-*   [`retext-english`][english] — Parse English prose to a syntax tree
-*   [`retext-dutch`][dutch] — Parse Dutch prose to a syntax tree
-*   [`retext-latin`][latin] — Parse any Latin-script prose to a syntax tree
-*   [`retext-stringify`][stringify] — Serialize a syntax tree
-*   [`retext`][api] — Programmatic interface with both `retext-latin` and `retext-stringify`
+[**retext**][retext] plugin to parse English natural language.
+[Parser][] for [**unified**][unified].
+Parses English language prose to [**nlcst**][nlcst] syntax trees.
 
 ## Sponsors
 
@@ -79,6 +75,48 @@ Support this effort and give back by sponsoring on [OpenCollective][collective]!
 </tr>
 </table>
 
+## Install
+
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
+[npm][]:
+
+```sh
+npm install retext-english
+```
+
+## Use
+
+```js
+import {unified} from 'unified'
+import {stream} from 'unified-stream'
+import retextEnglish from 'retext-english'
+import retextStringify from 'retext-stringify'
+import retextEmoji from 'retext-emoji'
+
+const processor = unified()
+  .use(retextEnglish)
+  .use(retextEmoji, {convert: 'encode'})
+  .use(retextStringify)
+
+process.stdin.pipe(stream(processor)).pipe(process.stdout)
+```
+
+## API
+
+This package exports the following identifiers: `Parser`.
+`retextEnglish` is the default export.
+
+### `unified().use(retextEnglish)`
+
+Parse English natural language.
+There is no configuration for the parser.
+
+### `Parser`
+
+Access to the [parser][] ([`parse-english`][parse-english]).
+
 ## Contribute
 
 See [`contributing.md`][contributing] in [`retextjs/.github`][health] for ways
@@ -99,8 +137,6 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[logo]: https://raw.githubusercontent.com/retextjs/retext/3420f05/logo.svg?sanitize=true
-
 [build-badge]: https://github.com/retextjs/retext/workflows/main/badge.svg
 
 [build]: https://github.com/retextjs/retext/actions
@@ -109,13 +145,13 @@ abide by its terms.
 
 [coverage]: https://codecov.io/github/retextjs/retext
 
-[downloads-badge]: https://img.shields.io/npm/dm/retext.svg
+[downloads-badge]: https://img.shields.io/npm/dm/retext-english.svg
 
-[downloads]: https://www.npmjs.com/package/retext
+[downloads]: https://www.npmjs.com/package/retext-english
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/retext.svg
+[size-badge]: https://img.shields.io/bundlephobia/minzip/retext-english.svg
 
-[size]: https://bundlephobia.com/result?p=retext
+[size]: https://bundlephobia.com/result?p=retext-english
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -135,38 +171,22 @@ abide by its terms.
 
 [coc]: https://github.com/retextjs/.github/blob/main/code-of-conduct.md
 
-[license]: license
-
-[author]: https://wooorm.com
-
-[unified]: https://github.com/unifiedjs/unified
-
-[website]: https://unifiedjs.com
-
-[learn]: https://unifiedjs.com/learn/
-
-[twitter]: https://twitter.com/unifiedjs
-
-[english]: https://github.com/retextjs/retext/tree/main/packages/retext-english
-
-[dutch]: https://github.com/retextjs/retext/tree/main/packages/retext-dutch
-
-[latin]: https://github.com/retextjs/retext/tree/main/packages/retext-latin
-
-[stringify]: https://github.com/retextjs/retext/tree/main/packages/retext-stringify
-
-[api]: https://github.com/retextjs/retext/tree/main/packages/retext
-
 [ideas]: https://github.com/retextjs/ideas
 
 [awesome]: https://github.com/retextjs/awesome-retext
 
-[plugins]: https://github.com/retextjs/retext/tree/main/doc/plugins.md
+[license]: https://github.com/retextjs/retext/blob/main/license
 
-[spell]: https://github.com/retextjs/retext-spell
+[author]: https://wooorm.com
 
-[smartypants]: https://github.com/retextjs/retext-smartypants
+[npm]: https://docs.npmjs.com/cli/install
 
-[readability]: https://github.com/retextjs/retext-readability
+[unified]: https://github.com/unifiedjs/unified
 
-[contribute]: #contribute
+[retext]: https://github.com/retextjs/retext
+
+[nlcst]: https://github.com/syntax-tree/nlcst
+
+[parser]: https://github.com/unifiedjs/unified#processorparser
+
+[parse-english]: https://github.com/wooorm/parse-english

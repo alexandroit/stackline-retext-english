@@ -9,9 +9,11 @@ import {removePosition} from 'unist-util-remove-position'
 import {assert} from 'nlcst-test'
 import {u} from 'unist-builder'
 import {unified} from 'unified'
-import {retext} from 'retext'
+import parse from './index.js'
+import stringify from 'retext-stringify'
+const retext=unified().use(parse).use(stringify).freeze()
 
-const parsers = ['latin', 'english', 'dutch']
+const parsers = ['english']
 
 test('.parse', (t) => {
   const tree = retext().parse('Alfred')
@@ -43,7 +45,7 @@ function eachParser(name) {
   test('retext-' + name, async (t) => {
     t.plan(2)
 
-    const fp = './packages/retext-' + name + '/index.js'
+    const fp = './index.js'
 
     /** @type {import('unified').Plugin<void[], string, Root>} */
     // type-coverage:ignore-next-line
