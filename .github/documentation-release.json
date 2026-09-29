@@ -1,0 +1,35 @@
+{
+  "repository": "alexandroit/stackline-retext-english",
+  "packages": [
+    {
+      "name": "@stackline/retext-english",
+      "path": "readme.md",
+      "version": "1.0.1",
+      "baselineVersion": "1.0.0",
+      "keywords": [
+        "stackline",
+        "npm-package",
+        "retext-english",
+        "typescript",
+        "unified",
+        "retext",
+        "retext-plugin",
+        "plugin",
+        "natural",
+        "language",
+        "english",
+        "concrete",
+        "syntax",
+        "tree",
+        "cst",
+        "parse",
+        "maintenance-fork"
+      ],
+      "homepage": "https://alexandro.net/docs/vanilla/retext-english/",
+      "baselineTarball": "https://registry.npmjs.org/@stackline/retext-english/-/retext-english-1.0.0.tgz",
+      "baselineIntegrity": "sha512-fqtc7C6JGyCwY1NYU/pU54/jKpLizuk9bmiUMzUhVjt1zEbYWi7kP4waG9A7VE9AuF7apuTueVfDoU+7r7p6Vg==",
+      "expectedSha512": "1fb93213ce9fe71bdbbe5a709a80b25039e6e35428136c6c0f1221701f0d75adbfd1ea495f4d85555ea8f9c0a9bf508071e31a6a1a07f73da9b8f26ed7b3be2a",
+      "tag": "docs-stackline-retext-english-v1.0.1"
+    }
+  ]
+}
