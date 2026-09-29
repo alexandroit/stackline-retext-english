@@ -24,8 +24,12 @@
     "test:package": "node scripts/test-package.mjs",
     "test:types": "tsc --ignoreConfig --noEmit --module NodeNext --moduleResolution NodeNext --target ES2022 --strict test/stackline-types.mts"
   },
-  "homepage": "https://github.com/alexandroit/stackline-retext-english#readme",
+  "homepage": "https://alexandro.net/docs/vanilla/retext-english/",
   "keywords": [
+    "stackline",
+    "npm-package",
+    "retext-english",
+    "typescript",
     "unified",
     "retext",
     "retext-plugin",
@@ -38,7 +42,6 @@
     "tree",
     "cst",
     "parse",
-    "stackline",
     "maintenance-fork"
   ],
   "repository": {
@@ -67,7 +70,7 @@
     "atLeast": 100,
     "ignoreCatch": true
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishConfig": {
     "access": "public"
   },
