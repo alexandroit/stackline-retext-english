@@ -10,7 +10,7 @@
 
 **[Documentation](https://alexandro.net/docs/vanilla/retext-english/)** | **[npm](https://www.npmjs.com/package/@stackline/retext-english)** | **[Issues](https://github.com/alexandroit/stackline-retext-english/issues)** | **[Repository](https://github.com/alexandroit/stackline-retext-english)**
 
-**Current package version:** `1.0.2`
+**Current package version:** `1.0.3`
 
 ---
 
@@ -22,7 +22,7 @@
 
 | Item | Value |
 | :--- | :--- |
-| Package | `@stackline/retext-english@1.0.2` |
+| Package | `@stackline/retext-english@1.0.3` |
 | API target | `retext-english@4.1.0` |
 | Supported Node.js | `See supported framework requirements` |
 | License | `MIT` |
